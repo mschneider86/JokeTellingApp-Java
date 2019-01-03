@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JokeDisplayActivity">
+
+    <TextView
+        android:id="@+id/tv_joke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="TextView"
+        android:layout_marginLeft="@dimen/joke_margin_horizontal"
+        android:layout_marginTop="@dimen/joke_margin_vertical"
+        android:textSize="@dimen/joke_size"
+        android:layout_marginRight="@dimen/joke_margin_horizontal"/>
+
+</android.support.constraint.ConstraintLayout>

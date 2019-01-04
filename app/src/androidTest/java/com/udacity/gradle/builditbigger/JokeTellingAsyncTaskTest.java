@@ -1,8 +1,10 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v4.util.Pair;
+import android.widget.Toast;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,16 +24,33 @@ public class JokeTellingAsyncTaskTest implements ProgressBarVisibilityHandler{
 
     @Test
     public void testNonEmptyString() {
-        JokesAsyncTask endpointsAsyncTask = new JokesAsyncTask(this);
+        //JokesAsyncTask endpointsAsyncTask = new JokesAsyncTask(this);
 
-        endpointsAsyncTask.execute(new Pair<>(InstrumentationRegistry.getTargetContext(), "test"));
+        //endpointsAsyncTask.execute(new Pair<>(InstrumentationRegistry.getTargetContext(), "test"));
+
+        MyAsyncTask myEndpointsAsyncTask = new MyAsyncTask(InstrumentationRegistry.getTargetContext(), this, new OnEventListener<String>() {
+            @Override
+            public void onSuccess(String result) {
+
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+
+            }
+        });
+
+        myEndpointsAsyncTask.execute(new Pair<>(InstrumentationRegistry.getTargetContext(), "test"));
 
         String result = "";
         try {
-            result = endpointsAsyncTask.get();
+            result = myEndpointsAsyncTask.get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (Exception e){
             e.printStackTrace();
         }
 
